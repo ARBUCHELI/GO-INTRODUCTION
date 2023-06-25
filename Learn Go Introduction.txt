@@ -128,10 +128,189 @@ func main() {
 
 ==================================================================================================================================================================
 
+* Our Program So Far: main Function
+-----------------------------------
+	Now that we know how to declare & use Go packages, let’s look through the rest of the code:
+
+		func main () {
+    			fmt.Println("Hello World") 
+		}
+		main Function
+
+	We use the func keyword to declare the Go function main:
+
+		. The func keyword denotes the start of a function declaration.
+
+		. func is followed by the name of the function: main.
+
+		. After the name there follows a pair of parentheses () and a set of curly braces {}.
+
+		. The function code is written inside the set of curly braces.
+
+	Function Code
+	-------------
+	The code inside a function is indented. The code here invokes the Println function in the fmt package (that we imported earlier) to print the message "Hello World".
+
+	Invoking Functions
+	------------------
+	Normally when we write functions, you need to write code to invoke them, otherwise they are unused. However, the main function is different if it resides in the main package.
+
+	When we have a main function in the main package, this is special to Go. When compiled, an executable is produced, and when run, the executable uses the main function as the 
+	starting point.
+
+main.go
+-------
+package main
+
+import "fmt"
+
+func main () {
+  fmt.Println("Hello World")
+}
+
+==================================================================================================================================================================
+
+* Importing Multiple Packages
+-----------------------------
+	Previously, we imported a single package, fmt. This package is useful but it is only one in a list of many included with Go.
+
+	The standard packages are so useful that you will often use multiple packages in each .go file.
+
+	Importing Multiple Packages
+	---------------------------
+	To import multiple packages, we can add multiple import statements:
+
+		import "package1"
+		import "package2"
+
+	Or use a single import with parentheses:
+
+		import (
+  			"package1"
+  			"package2"
+		)
+
+	Package Aliases
+	---------------
+	We can also provide an alias to a package by specifying an alias name before the package name.
+
+		import (
+  			p1 "package1"
+  			"package2"
+		)
+
+	In the example above we’ve aliased package1 as p1 and now we can call functions from package1 by using p1 like:
+
+		p1.SampleFunc()
+	
+	Instead of:
+
+		package1.SampleFunc() 
+
+==================================================================================================================================================================
+
+* Comments
+----------
+	Now we have completed the basics of using packages, let’s move on to comments.
+
+	Before Commenting…
+	------------------
+	“Don’t comment bad code — rewrite it.” — Brian W. Kernighan and P. J. Plaugher.
+
+	Try to make code as clean and self-explanatory before adding comments. They should be the icing on the cake rather than the filling!
+
+	Comments are useful for:
+
+		. Explaining what the code does & why something was done a certain way
+
+		. Outlining important or fragile blocks of code, which require extra care
+
+		. Noting down what we need to do when we are writing the code
+
+		. Disabling code without deleting it
+
+		Adding information to be picked up by the go doc tool (more on that later)
+
+	Types
+	-----
+	There are two types of comments in Go.
+
+	Line Comments
+	-------------
+	Line comments start with a // and the rest of the line is ignored by the compiler.
+
+		// This entire line is ignored by the compiler
+		// fmt.Println("Does NOT print")
+		fmt.Println("This gets printed!") // This part gets ignored
+
+	Note how you can add a // after the code, without affecting it.
+
+	Block Comments
+	--------------
+	Block comments can span multiple lines. They start with a /* and end with a */, enveloping everything inside:
+
+		/*
+		This is ignored.
+		This is also ignored. 
+		fmt.Println("This WON'T print!")
+		*/
+	
+	In the example above we’ve commented out all three lines using a block comment.
 
 
+	Now let’s use some comments in our own code!
 
+==================================================================================================================================================================
 
+* Go Resources
+--------------
+	There are many resources available to help us learn Go.
+
+	Go Doc
+	------
+	Go includes a program go doc for extracting and viewing documentation from .go files. For information about a package, use the command go doc followed by the package name.
+	
+		go doc fmt 
+
+	For information about a package function, use the command go doc followed by the package name, a period then the function name.
+
+		go doc fmt.Println
+
+	Google’s Go Website
+	-------------------
+		. Go’s official website
+
+		. Go’s official documentation
+
+	Other Websites
+	--------------
+		. Codecademy’s Forums
+
+		. Stack Overflow’s Go questions
+
+	Google Search
+	-------------
+	When searching for information about Go, you may want to consider searching Golang instead of Go, as it is more specific.
+
+==================================================================================================================================================================
+
+* Review
+--------
+	Great job! We’ve just finished your first Go lesson! In this lesson we learned about:
+
+		. What Go/Golang is & what its used for.
+
+		. The Go compiler.
+
+		. Go Packages, including the main for executables.
+
+		. Go Functions, including the main function.
+
+		. Comments
+
+		. Resources, including go doc.
+
+	If you’re interested in setting up your computer to create Go programs on your own computer, use our guide for developing Go locally!
 
 
 
